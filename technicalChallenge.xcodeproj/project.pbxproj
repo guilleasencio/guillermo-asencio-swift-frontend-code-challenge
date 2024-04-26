@@ -10,6 +10,7 @@
 		463FA99D2BDBCDA8000C337E /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FA99C2BDBCDA8000C337E /* LoaderView.swift */; };
 		463FA9A12BDBCE2A000C337E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FA9A02BDBCE2A000C337E /* UIView.swift */; };
 		463FA9A32BDBCEBF000C337E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FA9A22BDBCEBF000C337E /* HomeView.swift */; };
+		463FA9AD2BDC238E000C337E /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 463FA9AC2BDC238E000C337E /* Domain */; };
 		46E8A3E92BDAC11400BFA57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */; };
 		46E8A3F22BDAC11700BFA57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F12BDAC11700BFA57E /* Assets.xcassets */; };
 		46E8A3F52BDAC11700BFA57E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F42BDAC11700BFA57E /* Base */; };
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463FA9AD2BDC238E000C337E /* Domain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +114,13 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		463FA9AB2BDC238E000C337E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		46E8A3DC2BDAC11400BFA57E = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +128,7 @@
 				46E8A3FE2BDAC11700BFA57E /* technicalChallengeTests */,
 				46E8A4082BDAC11700BFA57E /* technicalChallengeUITests */,
 				46E8A3E62BDAC11400BFA57E /* Products */,
+				463FA9AB2BDC238E000C337E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,6 +229,9 @@
 				46E8A42D2BDB9B2100BFA57E /* PBXTargetDependency */,
 			);
 			name = technicalChallenge;
+			packageProductDependencies = (
+				463FA9AC2BDC238E000C337E /* Domain */,
+			);
 			productName = technicalChallenge;
 			productReference = 46E8A3E52BDAC11400BFA57E /* technicalChallenge.app */;
 			productType = "com.apple.product-type.application";
@@ -724,6 +737,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		463FA9AC2BDC238E000C337E /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
 		46E8A42C2BDB9B2100BFA57E /* SwiftLintPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 46E8A42A2BDB9ADF00BFA57E /* XCRemoteSwiftPackageReference "SwiftLint" */;
