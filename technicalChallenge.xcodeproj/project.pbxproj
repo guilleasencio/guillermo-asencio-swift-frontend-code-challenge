@@ -11,6 +11,7 @@
 		463FA9A12BDBCE2A000C337E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FA9A02BDBCE2A000C337E /* UIView.swift */; };
 		463FA9A32BDBCEBF000C337E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FA9A22BDBCEBF000C337E /* HomeView.swift */; };
 		463FA9AD2BDC238E000C337E /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 463FA9AC2BDC238E000C337E /* Domain */; };
+		463FA9AF2BDC2806000C337E /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 463FA9AE2BDC2806000C337E /* Data */; };
 		46E8A3E92BDAC11400BFA57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */; };
 		46E8A3F22BDAC11700BFA57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F12BDAC11700BFA57E /* Assets.xcassets */; };
 		46E8A3F52BDAC11700BFA57E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F42BDAC11700BFA57E /* Base */; };
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				463FA9AF2BDC2806000C337E /* Data in Frameworks */,
 				463FA9AD2BDC238E000C337E /* Domain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,6 +233,7 @@
 			name = technicalChallenge;
 			packageProductDependencies = (
 				463FA9AC2BDC238E000C337E /* Domain */,
+				463FA9AE2BDC2806000C337E /* Data */,
 			);
 			productName = technicalChallenge;
 			productReference = 46E8A3E52BDAC11400BFA57E /* technicalChallenge.app */;
@@ -740,6 +743,10 @@
 		463FA9AC2BDC238E000C337E /* Domain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Domain;
+		};
+		463FA9AE2BDC2806000C337E /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
 		};
 		46E8A42C2BDB9B2100BFA57E /* SwiftLintPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
