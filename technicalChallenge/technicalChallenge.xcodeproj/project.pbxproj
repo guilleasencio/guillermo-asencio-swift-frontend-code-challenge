@@ -178,10 +178,12 @@
 				46E8A3E12BDAC11400BFA57E /* Sources */,
 				46E8A3E22BDAC11400BFA57E /* Frameworks */,
 				46E8A3E32BDAC11400BFA57E /* Resources */,
+				46E8A42B2BDB9B0500BFA57E /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				46E8A42D2BDB9B2100BFA57E /* PBXTargetDependency */,
 			);
 			name = technicalChallenge;
 			productName = technicalChallenge;
@@ -256,6 +258,9 @@
 				Base,
 			);
 			mainGroup = 46E8A3DC2BDAC11400BFA57E;
+			packageReferences = (
+				46E8A42A2BDB9ADF00BFA57E /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = 46E8A3E62BDAC11400BFA57E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,6 +297,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46E8A42B2BDB9B0500BFA57E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		46E8A3E12BDAC11400BFA57E /* Sources */ = {
@@ -337,6 +363,10 @@
 			isa = PBXTargetDependency;
 			target = 46E8A3E42BDAC11400BFA57E /* technicalChallenge */;
 			targetProxy = 46E8A4062BDAC11700BFA57E /* PBXContainerItemProxy */;
+		};
+		46E8A42D2BDB9B2100BFA57E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 46E8A42C2BDB9B2100BFA57E /* SwiftLintPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -645,6 +675,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		46E8A42A2BDB9ADF00BFA57E /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.54.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		46E8A42C2BDB9B2100BFA57E /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46E8A42A2BDB9ADF00BFA57E /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 46E8A3DD2BDAC11400BFA57E /* Project object */;
 }

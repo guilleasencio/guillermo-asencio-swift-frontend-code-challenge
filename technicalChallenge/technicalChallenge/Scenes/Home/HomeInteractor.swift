@@ -19,9 +19,9 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
 
   var presenter: HomePresentationLogic?
   //var name: String = ""
-  
+
   // MARK: Do something
-  
+
   func doSomething(request: Home.Something.Request) {
     let response = Home.Something.Response()
     presenter?.presentSomething(response: response)

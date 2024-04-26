@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Home{
+enum Home {
   enum Something {
     struct Request {
     }
