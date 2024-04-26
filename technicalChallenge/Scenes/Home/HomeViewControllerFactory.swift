@@ -5,15 +5,20 @@
 //  Created by Guillermo Asencio Sanchez on 25/4/24.
 //
 
+import Data
+import Domain
 import Foundation
 import UIKit
 
 enum HomeViewControllerFactory {
     static func make() -> UIViewController {
         let viewController = HomeViewController()
-        let interactor = HomeInteractor()
         let presenter = HomePresenter()
         let router = HomeRouter()
+
+        let userRepository = UserRepositoryFactory.make()
+        let getUserDetailsUseCase = GetUserDetailsUseCaseFactory.make(userRepository: userRepository)
+        let interactor = HomeInteractor(getUserDetailsUseCase: getUserDetailsUseCase)
 
         viewController.interactor = interactor
         viewController.router = router

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeDisplayLogic {
-    func displaySomething(viewModel: Home.Something.ViewModel)
+    func displayUserDetails(viewModel: Home.UserDetails.ViewModel)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -51,7 +51,6 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         super.viewDidLoad()
         setupNavigationBar()
         setupComponents()
-        doSomething()
     }
 
     // MARK: - Private
@@ -67,12 +66,17 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
 
     // MARK: Do something
 
-    func doSomething() {
-        let request = Home.Something.Request()
-        interactor?.doSomething(request: request)
+    func doGetUserDetails(term: String) {
+        let request = Home.UserDetails.Request(term: term)
+        interactor?.doGetUserDetails(request: request)
     }
 
-    func displaySomething(viewModel: Home.Something.ViewModel) {
+    func displayUserDetails(viewModel: Home.UserDetails.ViewModel) {
+        guard let errorMessage = viewModel.errorMessage else {
+            // Navigate to UserDetails
+            return
+        }
+        // Display error
     }
 }
 
@@ -83,6 +87,6 @@ extension HomeViewController: HomeViewDelegate {
         guard let term else {
             return
         }
-        // Do something
+        doGetUserDetails(term: term)
     }
 }

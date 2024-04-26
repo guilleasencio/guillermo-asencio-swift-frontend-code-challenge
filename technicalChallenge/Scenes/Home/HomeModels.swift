@@ -8,14 +8,17 @@
 import UIKit
 
 enum Home {
-  enum Something {
+  enum UserDetails {
     struct Request {
+        let term: String
     }
 
     struct Response {
+        let errorMessage: String?
     }
 
     struct ViewModel {
+        let errorMessage: String?
     }
   }
 }

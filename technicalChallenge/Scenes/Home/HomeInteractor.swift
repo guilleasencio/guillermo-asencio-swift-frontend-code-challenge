@@ -4,26 +4,41 @@
 //
 //  Created by Guillermo Asencio Sanchez on 25/4/24.
 //
-
-import UIKit
+import Domain
 
 protocol HomeBusinessLogic {
-  func doSomething(request: Home.Something.Request)
+    func doGetUserDetails(request: Home.UserDetails.Request)
 }
 
 protocol HomeDataStore {
-  //var name: String { get set }
+    var user: User? { get }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
-
-  var presenter: HomePresentationLogic?
-  //var name: String = ""
-
-  // MARK: Do something
-
-  func doSomething(request: Home.Something.Request) {
-    let response = Home.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    
+    var presenter: HomePresentationLogic?
+    private let getUserDetailsUseCase: GetUserDetailsUseCase
+    
+    private(set) var user: User?
+    
+    init(getUserDetailsUseCase: GetUserDetailsUseCase) {
+        self.getUserDetailsUseCase = getUserDetailsUseCase
+    }
+    
+    // MARK: Public
+    
+    func doGetUserDetails(request: Home.UserDetails.Request) {
+        Task { @MainActor in
+            var errorMessage: String?
+            do {
+                user = try await getUserDetailsUseCase(username: request.term)
+            } catch let error as CustomError {
+                errorMessage = error.errorMessage
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+            let response = Home.UserDetails.Response(errorMessage: errorMessage)
+            presenter?.presentUserDetails(response: response)
+        }
+    }
 }

@@ -8,17 +8,17 @@
 import UIKit
 
 protocol HomePresentationLogic {
-  func presentSomething(response: Home.Something.Response)
+  func presentUserDetails(response: Home.UserDetails.Response)
 }
 
 class HomePresenter: HomePresentationLogic {
 
   var viewController: HomeDisplayLogic?
 
-  // MARK: Do something
+  // MARK: Public
 
-  func presentSomething(response: Home.Something.Response) {
-    let viewModel = Home.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
+    func presentUserDetails(response: Home.UserDetails.Response) {
+        let viewModel = Home.UserDetails.ViewModel(errorMessage: response.errorMessage)
+    viewController?.displayUserDetails(viewModel: viewModel)
   }
 }
