@@ -12,47 +12,77 @@ protocol HomeDisplayLogic {
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
-  var interactor: HomeBusinessLogic?
-  var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
 
-  // MARK: Object lifecycle
+    // MARK: - Properties
 
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-  }
+    var interactor: HomeBusinessLogic?
+    var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
 
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
+    private let sceneView = HomeView()
 
-  // MARK: Routing
+    // MARK: Object lifecycle
 
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-  }
 
-  // MARK: View lifecycle
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    doSomething()
-  }
+    // MARK: Routing
 
-  // MARK: Do something
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
 
-  //@IBOutlet weak var nameTextField: UITextField!
+    // MARK: View lifecycle
 
-  func doSomething() {
-    let request = Home.Something.Request()
-    interactor?.doSomething(request: request)
-  }
+    override func loadView() {
+        view = sceneView
+    }
 
-  func displaySomething(viewModel: Home.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNavigationBar()
+        setupComponents()
+        doSomething()
+    }
+
+    // MARK: - Private
+
+    private func setupNavigationBar() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = "GitHub Viewer"
+    }
+
+    private func setupComponents() {
+        sceneView.delegate = self
+    }
+
+    // MARK: Do something
+
+    func doSomething() {
+        let request = Home.Something.Request()
+        interactor?.doSomething(request: request)
+    }
+
+    func displaySomething(viewModel: Home.Something.ViewModel) {
+    }
+}
+
+// MARK: - HomeViewDelegate
+
+extension HomeViewController: HomeViewDelegate {
+    func didTapSearchButton(term: String?) {
+        guard let term else {
+            return
+        }
+        // Do something
+    }
 }

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 enum HomeViewControllerFactory {
-
     static func make() -> UIViewController {
         let viewController = HomeViewController()
         let interactor = HomeInteractor()
