@@ -9,4 +9,5 @@ import Foundation
 
 public protocol UserRepository: AnyObject {
     func getUserDetails(for username: String) async throws -> User
+    func getUserRepositories(for username: String) async throws -> [Repository]
 }

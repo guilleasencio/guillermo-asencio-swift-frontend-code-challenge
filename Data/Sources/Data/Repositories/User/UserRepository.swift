@@ -30,6 +30,10 @@ class UserRepositoryImplementation: UserRepository {
             }
         }
     }
+
+    func getUserRepositories(for username: String) async throws -> [Repository] {
+        []
+    }
 }
 
 private extension UserDetailsDTO {

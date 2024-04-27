@@ -17,7 +17,13 @@ protocol ProfileDataStore {
 }
 
 class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
+
     var presenter: ProfilePresentationLogic?
+    private let getUserRepositoriesUseCase: GetUserRepositoriesUseCase
+
+    init(getUserRepositoriesUseCase: GetUserRepositoriesUseCase) {
+        self.getUserRepositoriesUseCase = getUserRepositoriesUseCase
+    }
 
     var user: User?
 
@@ -27,7 +33,18 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
         guard let user else {
             return
         }
-        let response = Profile.Data.Response(user: user, repositories: [])
-        presenter?.presentData(response: response)
+        Task { @MainActor in
+            var errorMessage: String?
+            var repositories: [Repository] = []
+            do {
+                repositories = try await getUserRepositoriesUseCase(username: user.username)
+            } catch let error as CustomError {
+                errorMessage = error.errorMessage
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+            let response = Profile.Data.Response(user: user, repositories: repositories)
+            presenter?.presentData(response: response)
+        }
     }
 }

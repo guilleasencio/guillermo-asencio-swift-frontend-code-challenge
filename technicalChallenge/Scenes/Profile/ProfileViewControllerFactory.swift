@@ -13,9 +13,12 @@ import UIKit
 enum ProfileViewControllerFactory {
     static func make() -> ProfileViewController {
         let viewController = ProfileViewController()
-        let interactor = ProfileInteractor()
         let presenter = ProfilePresenter()
         let router = ProfileRouter()
+
+        let userRepository = UserRepositoryFactory.make()
+        let getUserRepositoriesUseCase = GetUserRepositoriesUseCaseFactory.make(userRepository: userRepository)
+        let interactor = ProfileInteractor(getUserRepositoriesUseCase: getUserRepositoriesUseCase)
 
         viewController.interactor = interactor
         viewController.router = router
