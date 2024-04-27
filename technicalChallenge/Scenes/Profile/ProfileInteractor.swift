@@ -9,7 +9,7 @@ import Domain
 import Foundation
 
 protocol ProfileBusinessLogic {
-    func doSomething(request: Profile.Something.Request)
+    func loadData(request: Profile.Data.Request)
 }
 
 protocol ProfileDataStore {
@@ -23,8 +23,11 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
 
     // MARK: Do something
 
-    func doSomething(request: Profile.Something.Request) {
-        let response = Profile.Something.Response()
-        presenter?.presentSomething(response: response)
+    func loadData(request: Profile.Data.Request) {
+        guard let user else {
+            return
+        }
+        let response = Profile.Data.Response(user: user)
+        presenter?.presentData(response: response)
     }
 }

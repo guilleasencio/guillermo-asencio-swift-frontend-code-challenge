@@ -8,8 +8,8 @@
 import Foundation
 
 public struct User {
-    let username: String
-    let avatar: String
+    public let username: String
+    public let avatar: String
 
     public init(username: String, avatar: String) {
         self.username = username

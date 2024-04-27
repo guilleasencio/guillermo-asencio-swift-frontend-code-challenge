@@ -8,8 +8,8 @@
 import UIKit
 
 enum ProfileViewState {
-  case loading
-  case loaded
+    case loading
+    case loaded(headerViewData: ProfileHeaderViewData)
 }
 
 class ProfileView: UIView {
@@ -27,6 +27,7 @@ class ProfileView: UIView {
     }
 
     // MARK: - Properties
+    private let profileHeaderView = ProfileHeaderView()
     private let loaderView = LoaderView()
 
     // MARK: - Lifecycle
@@ -43,14 +44,17 @@ class ProfileView: UIView {
 
     // MARK: - Public
 
-    func setState(state: HomeViewState) {
+    func setState(state: ProfileViewState) {
         switch state {
         case .loading:
+            profileHeaderView.isHidden = true
             loaderView.isHidden = false
             loaderView.startAnimating()
-        case .loaded:
+        case .loaded(let headerViewData):
             loaderView.stopAnimating()
             loaderView.isHidden = true
+            profileHeaderView.isHidden = false
+            profileHeaderView.setupUI(data: headerViewData)
         }
     }
 
@@ -59,13 +63,18 @@ class ProfileView: UIView {
     private func setupComponents() {
         backgroundColor = .white
 
-        loaderView.isHidden = false
+        loaderView.isHidden = true
 
+        addSubviewForAutolayout(profileHeaderView)
         addSubviewForAutolayout(loaderView)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
+            profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
+
             loaderView.heightAnchor.constraint(equalToConstant: ViewTraits.loaderSize),
             loaderView.widthAnchor.constraint(equalToConstant: ViewTraits.loaderSize),
             loaderView.centerXAnchor.constraint(equalTo: centerXAnchor),

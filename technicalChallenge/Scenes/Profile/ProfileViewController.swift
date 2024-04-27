@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ProfileDisplayLogic: AnyObject {
-    func displaySomething(viewModel: Profile.Something.ViewModel)
+    func displayData(viewModel: Profile.Data.ViewModel)
 }
 
 class ProfileViewController: UIViewController, ProfileDisplayLogic {
@@ -35,16 +35,18 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        loadData()
     }
 
     // MARK: Do something
 
-    func doSomething() {
-        let request = Profile.Something.Request()
-        interactor?.doSomething(request: request)
+    func loadData() {
+        sceneView.setState(state: .loading)
+        let request = Profile.Data.Request()
+        interactor?.loadData(request: request)
     }
 
-    func displaySomething(viewModel: Profile.Something.ViewModel) {
+    func displayData(viewModel: Profile.Data.ViewModel) {
+        sceneView.setState(state: .loaded(headerViewData: viewModel.headerViewData))
     }
 }
