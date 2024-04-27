@@ -18,8 +18,9 @@ class RepositoryViewCell: UITableViewCell {
 
     private struct ViewTraits {
         // Margins
-        static let contentMargin: CGFloat = 18.0
-        static let languageTopMargin: CGFloat = 8
+        static let contentVerticalMargin: CGFloat = 8.0
+        static let contentHorizontalMargin: CGFloat = 18.0
+        static let languageTopMargin: CGFloat = 4.0
         // Fonts
         static let fontSize: CGFloat = 13.0
     }
@@ -45,7 +46,7 @@ class RepositoryViewCell: UITableViewCell {
 
     func setupUI(data: RepositoryViewCellData) {
         nameLabel.text = data.name
-        languageLabel.text = data.language != nil ? data.language : ""
+        languageLabel.text = data.language != nil ? data.language : "(empty)"
     }
 
     private func setupComponents() {
@@ -70,20 +71,20 @@ class RepositoryViewCell: UITableViewCell {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor,
-                                           constant: ViewTraits.contentMargin),
+                                           constant: ViewTraits.contentVerticalMargin),
             nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                               constant: ViewTraits.contentMargin),
+                                               constant: ViewTraits.contentHorizontalMargin),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-                                                constant: -ViewTraits.contentMargin),
+                                                constant: -ViewTraits.contentHorizontalMargin),
 
             languageLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,
                                                constant: ViewTraits.languageTopMargin),
             languageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,
-                                                   constant: ViewTraits.contentMargin),
+                                                   constant: ViewTraits.contentHorizontalMargin),
             languageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,
-                                                    constant: -ViewTraits.contentMargin),
+                                                    constant: -ViewTraits.contentHorizontalMargin),
             languageLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,
-                                                  constant: -ViewTraits.contentMargin)
+                                                  constant: -ViewTraits.contentVerticalMargin)
         ])
     }
 }

@@ -58,8 +58,9 @@ class ProfileView: UIView {
             loaderView.stopAnimating()
             loaderView.isHidden = true
             profileHeaderView.isHidden = false
-            tableCellData = cellData
             profileHeaderView.setupUI(data: headerViewData)
+            tableCellData = cellData
+            tableView.reloadData()
         }
     }
 
@@ -77,7 +78,8 @@ class ProfileView: UIView {
         tableView.estimatedRowHeight = ViewTraits.estimatedRowHeight
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = ViewTraits.estimatedHeaderHeight
-        tableView.separatorStyle = .none
+        tableView.sectionFooterHeight = 0.0
+        tableView.separatorStyle = .singleLine
         tableView.allowsSelection = false
         tableView.contentInset = .zero
         tableView.register(RepositoryViewCell.self,
@@ -133,7 +135,10 @@ extension ProfileView: UITableViewDataSource {
 extension ProfileView: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    UITableView.automaticDimension
+      guard section == 0 else {
+          return 0
+      }
+      return UITableView.automaticDimension
   }
 
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
