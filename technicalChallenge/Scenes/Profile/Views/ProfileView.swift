@@ -9,7 +9,7 @@ import UIKit
 
 enum ProfileViewState {
     case loading
-    case loaded(headerViewData: ProfileHeaderViewData)
+    case loaded(headerViewData: ProfileHeaderViewData, cellData: [RepositoryViewCellData])
 }
 
 class ProfileView: UIView {
@@ -22,13 +22,17 @@ class ProfileView: UIView {
         static let contentMargin: CGFloat = 40.0
         static let contentSpacing: CGFloat = 18.0
         // Sizes
-        static let imageSize: CGFloat = 200.0
         static let loaderSize: CGFloat = 50.0
+        static let estimatedHeaderHeight: CGFloat = 200.0
+        static let estimatedRowHeight: CGFloat = 50.0
     }
 
     // MARK: - Properties
+    private let tableView = UITableView(frame: .zero, style: .grouped)
     private let profileHeaderView = ProfileHeaderView()
     private let loaderView = LoaderView()
+
+    private var tableCellData: [RepositoryViewCellData] = []
 
     // MARK: - Lifecycle
 
@@ -50,10 +54,11 @@ class ProfileView: UIView {
             profileHeaderView.isHidden = true
             loaderView.isHidden = false
             loaderView.startAnimating()
-        case .loaded(let headerViewData):
+        case .loaded(let headerViewData, let cellData):
             loaderView.stopAnimating()
             loaderView.isHidden = true
             profileHeaderView.isHidden = false
+            tableCellData = cellData
             profileHeaderView.setupUI(data: headerViewData)
         }
     }
@@ -65,15 +70,29 @@ class ProfileView: UIView {
 
         loaderView.isHidden = true
 
-        addSubviewForAutolayout(profileHeaderView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = nil
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = ViewTraits.estimatedRowHeight
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = ViewTraits.estimatedHeaderHeight
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.contentInset = .zero
+        tableView.register(RepositoryViewCell.self,
+                           forCellReuseIdentifier: RepositoryViewCell.reuseIdentifier)
+
+        addSubviewForAutolayout(tableView)
         addSubviewForAutolayout(loaderView)
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            profileHeaderView.topAnchor.constraint(equalTo: topAnchor),
-            profileHeaderView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            profileHeaderView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
             loaderView.heightAnchor.constraint(equalToConstant: ViewTraits.loaderSize),
             loaderView.widthAnchor.constraint(equalToConstant: ViewTraits.loaderSize),
@@ -81,4 +100,46 @@ class ProfileView: UIView {
             loaderView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
+}
+
+// MARK: - UITableViewDataSource
+
+extension ProfileView: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+        } else {
+            return tableCellData.count
+        }
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let reuseId = RepositoryViewCell.reuseIdentifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath)
+        guard let repositoryCell = cell as? RepositoryViewCell else {
+            return cell
+        }
+        repositoryCell.setupUI(data: tableCellData[indexPath.row])
+        return repositoryCell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension ProfileView: UITableViewDelegate {
+
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    UITableView.automaticDimension
+  }
+
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+      guard section == 0 else {
+          return nil
+      }
+      return profileHeaderView
+  }
 }

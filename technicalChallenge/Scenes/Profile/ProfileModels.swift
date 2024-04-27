@@ -15,10 +15,12 @@ enum Profile {
 
         struct Response {
             let user: User
+            let repositories: [Repository]
         }
 
         struct ViewModel {
             let headerViewData: ProfileHeaderViewData
+            let cellData: [RepositoryViewCellData]
         }
     }
 }

@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         loadData()
     }
 
-    // MARK: Do something
+    // MARK: - Output
 
     func loadData() {
         sceneView.setState(state: .loading)
@@ -46,7 +46,10 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
         interactor?.loadData(request: request)
     }
 
+    // MARK: - Input
+
     func displayData(viewModel: Profile.Data.ViewModel) {
-        sceneView.setState(state: .loaded(headerViewData: viewModel.headerViewData))
+        sceneView.setState(state: .loaded(headerViewData: viewModel.headerViewData,
+                                          cellData: viewModel.cellData))
     }
 }

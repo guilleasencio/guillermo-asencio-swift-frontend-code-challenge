@@ -21,13 +21,13 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
 
     var user: User?
 
-    // MARK: Do something
+    // MARK: - Public
 
     func loadData(request: Profile.Data.Request) {
         guard let user else {
             return
         }
-        let response = Profile.Data.Response(user: user)
+        let response = Profile.Data.Response(user: user, repositories: [])
         presenter?.presentData(response: response)
     }
 }
