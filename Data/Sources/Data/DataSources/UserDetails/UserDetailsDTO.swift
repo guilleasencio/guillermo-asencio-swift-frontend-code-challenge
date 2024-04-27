@@ -10,7 +10,7 @@ import Foundation
 struct UserDetailsDTO: Decodable {
     let username: String
     let avatar: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case username = "login"
         case avatar = "avatar_url"

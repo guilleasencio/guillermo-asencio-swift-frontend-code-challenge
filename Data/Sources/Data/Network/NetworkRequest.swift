@@ -11,7 +11,7 @@ import Foundation
 enum Encoding {
     case json
     case url
-    
+
     func parameterEncoding() -> ParameterEncoding {
         switch self {
         case .json:
@@ -31,8 +31,8 @@ protocol NetworkRequest {
 }
 
 extension NetworkRequest {
-    var httpMethod: HTTPMethod { return .get }
-    var encoding: ParameterEncoding { return Encoding.json.parameterEncoding() }
-    var headers: [String: String] { return [:] }
-    var parameters: Parameters? { return nil }
+    var httpMethod: HTTPMethod { .get }
+    var encoding: ParameterEncoding { Encoding.json.parameterEncoding() }
+    var headers: [String: String] { [:] }
+    var parameters: Parameters? { nil }
 }

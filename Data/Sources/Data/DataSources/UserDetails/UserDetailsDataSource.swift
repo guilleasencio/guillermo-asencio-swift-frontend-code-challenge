@@ -13,11 +13,11 @@ protocol UserDetailsDataSource: AnyObject {
 
 class UserDetailsDataSourceImplementation: UserDetailsDataSource {
     private let networkManager: NetworkManager
-    
+
     init(networkManager: NetworkManager) {
         self.networkManager = networkManager
     }
-    
+
     func getUserDetails(username: String) async throws -> UserDetailsDTO {
         let request = UserDetailsRequest(username: username)
         let data = try await NetworkManager.shared.request(request)

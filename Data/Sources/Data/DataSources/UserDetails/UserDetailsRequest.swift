@@ -9,7 +9,7 @@ import Foundation
 
 struct UserDetailsRequest: NetworkRequest {
     var path: String = "/users"
-    
+
     init(username: String) {
         self.path += "/\(username)"
     }
