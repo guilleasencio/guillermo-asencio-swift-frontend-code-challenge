@@ -15,18 +15,18 @@ protocol HomeDataStore {
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
-    
+
     var presenter: HomePresentationLogic?
     private let getUserDetailsUseCase: GetUserDetailsUseCase
-    
+
     private(set) var user: User?
-    
+
     init(getUserDetailsUseCase: GetUserDetailsUseCase) {
         self.getUserDetailsUseCase = getUserDetailsUseCase
     }
-    
+
     // MARK: Public
-    
+
     func doGetUserDetails(request: Home.UserDetails.Request) {
         Task { @MainActor in
             var errorMessage: String?

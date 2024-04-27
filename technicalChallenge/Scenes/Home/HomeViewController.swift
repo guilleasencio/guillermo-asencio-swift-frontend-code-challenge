@@ -64,19 +64,21 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         sceneView.delegate = self
     }
 
-    // MARK: Do something
+    // MARK: - Output
 
     func doGetUserDetails(term: String) {
         let request = Home.UserDetails.Request(term: term)
         interactor?.doGetUserDetails(request: request)
     }
 
+    // MARK: - Input
+
     func displayUserDetails(viewModel: Home.UserDetails.ViewModel) {
         guard let errorMessage = viewModel.errorMessage else {
             // Navigate to UserDetails
             return
         }
-        // Display error
+        router?.routeToAlert(message: errorMessage)
     }
 }
 
