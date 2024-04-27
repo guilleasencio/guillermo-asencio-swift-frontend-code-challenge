@@ -4,6 +4,7 @@
 //
 //  Created by Guillermo Asencio Sanchez on 25/4/24.
 //
+
 import Domain
 
 protocol HomeBusinessLogic {

@@ -9,4 +9,7 @@ import Foundation
 
 public enum ErrorCode: String {
     case emptyUsername
+    case networkError
+    case userNotFound
+    case generic
 }

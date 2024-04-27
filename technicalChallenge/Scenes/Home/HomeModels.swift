@@ -5,7 +5,7 @@
 //  Created by Guillermo Asencio Sanchez on 25/4/24.
 //
 
-import UIKit
+import Foundation
 
 enum Home {
   enum UserDetails {
