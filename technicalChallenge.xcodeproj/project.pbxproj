@@ -12,6 +12,13 @@
 		463FA9A32BDBCEBF000C337E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FA9A22BDBCEBF000C337E /* HomeView.swift */; };
 		463FA9AD2BDC238E000C337E /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 463FA9AC2BDC238E000C337E /* Domain */; };
 		463FA9AF2BDC2806000C337E /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 463FA9AE2BDC2806000C337E /* Data */; };
+		465742E82BDD6D1500D38C7F /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742E22BDD6D1500D38C7F /* ProfilePresenter.swift */; };
+		465742EA2BDD6D1500D38C7F /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742E42BDD6D1500D38C7F /* ProfileRouter.swift */; };
+		465742EB2BDD6D1500D38C7F /* ProfileModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742E52BDD6D1500D38C7F /* ProfileModels.swift */; };
+		465742EC2BDD6D1500D38C7F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742E62BDD6D1500D38C7F /* ProfileViewController.swift */; };
+		465742ED2BDD6D1500D38C7F /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742E72BDD6D1500D38C7F /* ProfileInteractor.swift */; };
+		465742EF2BDD7FF600D38C7F /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742EE2BDD7FF600D38C7F /* ProfileView.swift */; };
+		465742F12BDD80CC00D38C7F /* ProfileViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742F02BDD80CC00D38C7F /* ProfileViewControllerFactory.swift */; };
 		46E8A3E92BDAC11400BFA57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */; };
 		46E8A3F22BDAC11700BFA57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F12BDAC11700BFA57E /* Assets.xcassets */; };
 		46E8A3F52BDAC11700BFA57E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F42BDAC11700BFA57E /* Base */; };
@@ -47,6 +54,13 @@
 		463FA99C2BDBCDA8000C337E /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		463FA9A02BDBCE2A000C337E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		463FA9A22BDBCEBF000C337E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		465742E22BDD6D1500D38C7F /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		465742E42BDD6D1500D38C7F /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		465742E52BDD6D1500D38C7F /* ProfileModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModels.swift; sourceTree = "<group>"; };
+		465742E62BDD6D1500D38C7F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		465742E72BDD6D1500D38C7F /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		465742EE2BDD7FF600D38C7F /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		465742F02BDD80CC00D38C7F /* ProfileViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerFactory.swift; sourceTree = "<group>"; };
 		46E8A3E52BDAC11400BFA57E /* technicalChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = technicalChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46E8A3F12BDAC11700BFA57E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +137,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		46D489592BDD6BA60077A443 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				465742E72BDD6D1500D38C7F /* ProfileInteractor.swift */,
+				465742E52BDD6D1500D38C7F /* ProfileModels.swift */,
+				465742E22BDD6D1500D38C7F /* ProfilePresenter.swift */,
+				465742E42BDD6D1500D38C7F /* ProfileRouter.swift */,
+				465742EE2BDD7FF600D38C7F /* ProfileView.swift */,
+				465742E62BDD6D1500D38C7F /* ProfileViewController.swift */,
+				465742F02BDD80CC00D38C7F /* ProfileViewControllerFactory.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		46E8A3DC2BDAC11400BFA57E = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				46E8A4192BDAD57500BFA57E /* Home */,
+				46D489592BDD6BA60077A443 /* Profile */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -184,13 +213,13 @@
 		46E8A4192BDAD57500BFA57E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				46E8A4212BDAD64500BFA57E /* HomeInteractor.swift */,
+				46E8A41F2BDAD64500BFA57E /* HomeModels.swift */,
 				46E8A41C2BDAD64500BFA57E /* HomePresenter.swift */,
 				46E8A41E2BDAD64500BFA57E /* HomeRouter.swift */,
-				46E8A41F2BDAD64500BFA57E /* HomeModels.swift */,
-				46E8A4202BDAD64500BFA57E /* HomeViewController.swift */,
-				46E8A4212BDAD64500BFA57E /* HomeInteractor.swift */,
-				46E8A4282BDAD86E00BFA57E /* HomeViewControllerFactory.swift */,
 				463FA9A22BDBCEBF000C337E /* HomeView.swift */,
+				46E8A4202BDAD64500BFA57E /* HomeViewController.swift */,
+				46E8A4282BDAD86E00BFA57E /* HomeViewControllerFactory.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -376,13 +405,20 @@
 				46E8A4222BDAD64500BFA57E /* HomePresenter.swift in Sources */,
 				46E8A4242BDAD64500BFA57E /* HomeRouter.swift in Sources */,
 				46E8A4252BDAD64500BFA57E /* HomeModels.swift in Sources */,
+				465742F12BDD80CC00D38C7F /* ProfileViewControllerFactory.swift in Sources */,
 				463FA9A32BDBCEBF000C337E /* HomeView.swift in Sources */,
 				46E8A4262BDAD64500BFA57E /* HomeViewController.swift in Sources */,
 				46E8A4272BDAD64500BFA57E /* HomeInteractor.swift in Sources */,
 				463FA99D2BDBCDA8000C337E /* LoaderView.swift in Sources */,
 				46E8A3E92BDAC11400BFA57E /* AppDelegate.swift in Sources */,
+				465742EF2BDD7FF600D38C7F /* ProfileView.swift in Sources */,
 				463FA9A12BDBCE2A000C337E /* UIView.swift in Sources */,
 				46E8A4292BDAD86E00BFA57E /* HomeViewControllerFactory.swift in Sources */,
+				465742E82BDD6D1500D38C7F /* ProfilePresenter.swift in Sources */,
+				465742EA2BDD6D1500D38C7F /* ProfileRouter.swift in Sources */,
+				465742EB2BDD6D1500D38C7F /* ProfileModels.swift in Sources */,
+				465742EC2BDD6D1500D38C7F /* ProfileViewController.swift in Sources */,
+				465742ED2BDD6D1500D38C7F /* ProfileInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 enum HomeViewControllerFactory {
-    static func make() -> UIViewController {
+    static func make() -> HomeViewController {
         let viewController = HomeViewController()
         let presenter = HomePresenter()
         let router = HomeRouter()

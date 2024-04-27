@@ -9,6 +9,7 @@ import UIKit
 
 protocol HomeRoutingLogic: AnyObject {
     func routeToAlert(message: String)
+    func routeToProfile()
 }
 
 protocol HomeDataPassing {
@@ -31,5 +32,13 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
 
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         viewController?.present(alert, animated: true, completion: nil)
+    }
+
+    func routeToProfile() {
+        let destinationVC = ProfileViewControllerFactory.make()
+        if let sourceDS = dataStore, var destinationDS = destinationVC.router?.dataStore {
+          destinationDS.user = sourceDS.user
+        }
+        viewController?.navigationController?.pushViewController(destinationVC, animated: true)
     }
 }

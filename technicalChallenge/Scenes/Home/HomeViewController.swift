@@ -66,7 +66,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     func displayUserDetails(viewModel: Home.UserDetails.ViewModel) {
         sceneView.setState(state: .loaded)
         guard let errorMessage = viewModel.errorMessage else {
-            // Navigate to UserDetails
+            router?.routeToProfile()
             return
         }
         router?.routeToAlert(message: errorMessage)
