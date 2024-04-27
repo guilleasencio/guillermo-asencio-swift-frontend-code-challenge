@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum HomeViewState {
+  case loading
+  case loaded
+}
+
 protocol HomeViewDelegate: AnyObject {
     func didTapSearchButton(term: String?)
 }
@@ -52,6 +57,23 @@ class HomeView: UIView {
 
     @objc private func didTapSearchButton() {
         delegate?.didTapSearchButton(term: searchTextField.text)
+    }
+
+    // MARK: - Public
+
+    func setState(state: HomeViewState) {
+        switch state {
+        case .loading:
+            searchTextField.isHidden = true
+            searchButton.isHidden = true
+            loaderView.isHidden = false
+            loaderView.startAnimating()
+        case .loaded:
+            loaderView.stopAnimating()
+            loaderView.isHidden = true
+            searchTextField.isHidden = false
+            searchButton.isHidden = false
+        }
     }
 
     // MARK: - Private
