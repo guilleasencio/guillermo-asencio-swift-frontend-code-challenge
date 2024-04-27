@@ -16,8 +16,8 @@ enum ProfileViewControllerFactory {
         let presenter = ProfilePresenter()
         let router = ProfileRouter()
 
-        let userRepository = UserRepositoryFactory.make()
-        let getUserRepositoriesUseCase = GetUserRepositoriesUseCaseFactory.make(userRepository: userRepository)
+        let reposRepository = RepositoriesRepositoryFactory.make()
+        let getUserRepositoriesUseCase = GetUserRepositoriesUseCaseFactory.make(repositoriesRepository: reposRepository)
         let interactor = ProfileInteractor(getUserRepositoriesUseCase: getUserRepositoriesUseCase)
 
         viewController.interactor = interactor

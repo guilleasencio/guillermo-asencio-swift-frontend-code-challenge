@@ -12,13 +12,13 @@ public protocol GetUserRepositoriesUseCase: AnyObject {
 }
 
 final class GetUserRepositoriesUseCaseImplementation: GetUserRepositoriesUseCase {
-    private let userRepository: UserRepository
+    private let repositoriesRepository: RepositoriesRepository
 
-    init(userRepository: UserRepository) {
-        self.userRepository = userRepository
+    init(repositoriesRepository: RepositoriesRepository) {
+        self.repositoriesRepository = repositoriesRepository
     }
 
     func callAsFunction(username: String) async throws -> [Repository] {
-        return try await userRepository.getUserRepositories(for: username)
+        return try await repositoriesRepository.getUserRepositories(for: username)
     }
 }

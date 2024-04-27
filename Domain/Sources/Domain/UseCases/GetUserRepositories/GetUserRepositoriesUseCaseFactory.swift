@@ -8,7 +8,7 @@
 import Foundation
 
 public enum GetUserRepositoriesUseCaseFactory {
-    public static func make(userRepository: UserRepository) -> GetUserRepositoriesUseCase {
-        GetUserRepositoriesUseCaseImplementation(userRepository: userRepository)
+    public static func make(repositoriesRepository: RepositoriesRepository) -> GetUserRepositoriesUseCase {
+        GetUserRepositoriesUseCaseImplementation(repositoriesRepository: repositoriesRepository)
     }
 }
