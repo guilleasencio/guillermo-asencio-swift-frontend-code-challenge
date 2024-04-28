@@ -16,8 +16,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Domain"),
-        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.9.1"),
-        .package(url: "https://github.com/realm/SwiftLint", from: "0.54.0")
+        .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.9.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -27,11 +26,11 @@ let package = Package(
             dependencies: [
                 "Domain",
                 .product(name: "Alamofire", package: "alamofire")
-            ],
-            plugins: [.plugin(name: "SwiftLintPlugin", package: "SwiftLint")]),
+            ]
+        ),
         .testTarget(
             name: "DataTests",
-            dependencies: ["Data"],
-            plugins: [.plugin(name: "SwiftLintPlugin", package: "SwiftLint")]),
+            dependencies: ["Data"]
+        ),
     ]
 )
