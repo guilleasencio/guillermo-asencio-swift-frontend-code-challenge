@@ -12,15 +12,15 @@ protocol UserDetailsDataSource: AnyObject {
 }
 
 class UserDetailsDataSourceImplementation: UserDetailsDataSource {
-    private let networkManager: NetworkManager
+    private let networkManager: NetworkManagerLogic
 
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManagerLogic) {
         self.networkManager = networkManager
     }
 
     func getUserDetails(username: String) async throws -> UserDetailsDTO {
         let request = UserDetailsRequest(username: username)
-        let data = try await NetworkManager.shared.request(request)
+        let data = try await networkManager.request(request)
         return try NetworkParser.parse(data: data, entityType: UserDetailsDTO.self)
     }
 }

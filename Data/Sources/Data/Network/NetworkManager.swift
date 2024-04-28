@@ -8,7 +8,11 @@
 import Alamofire
 import Foundation
 
-final actor NetworkManager: GlobalActor {
+protocol NetworkManagerLogic: AnyObject {
+    func request(_ request: NetworkRequest) async throws -> Data
+}
+
+final actor NetworkManager: NetworkManagerLogic, GlobalActor {
     static let shared = NetworkManager()
     private let baseUrl = "https://api.github.com"
     private init() {}

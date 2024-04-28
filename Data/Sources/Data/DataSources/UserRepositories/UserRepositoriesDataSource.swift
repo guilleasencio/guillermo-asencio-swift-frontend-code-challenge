@@ -12,15 +12,15 @@ protocol UserRepositoriesDataSource: AnyObject {
 }
 
 class UserRepositoriesDataSourceImplementation: UserRepositoriesDataSource {
-    private let networkManager: NetworkManager
+    private let networkManager: NetworkManagerLogic
 
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManagerLogic) {
         self.networkManager = networkManager
     }
 
     func getUserRepositories(username: String) async throws -> [UserRepositoryDTO] {
         let request = UserRepositoriesRequest(username: username)
-        let data = try await NetworkManager.shared.request(request)
+        let data = try await networkManager.request(request)
         return try NetworkParser.parse(data: data, entityType: [UserRepositoryDTO].self)
     }
 }

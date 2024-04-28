@@ -5,7 +5,6 @@
 //  Created by Guillermo Asencio Sanchez on 28/4/24.
 //
 
-
 import Domain
 import XCTest
 @testable import Data
