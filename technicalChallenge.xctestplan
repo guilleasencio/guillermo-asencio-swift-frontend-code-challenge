@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "D656937E-E6AC-43E6-9FB0-E9C210856E89",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:technicalChallenge.xcodeproj",
+        "identifier" : "46E8A3FA2BDAC11700BFA57E",
+        "name" : "technicalChallengeTests"
+      }
+    }
+  ],
+  "version" : 1
+}

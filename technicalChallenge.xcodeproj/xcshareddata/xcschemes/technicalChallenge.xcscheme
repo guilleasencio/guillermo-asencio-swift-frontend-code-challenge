@@ -30,8 +30,17 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../technicalChallenge.xctestplan"
+            reference = "container:technicalChallenge.xctestplan"
             default = "YES">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:DomainTestPlan.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:DataTestPlan.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:WorkspaceTestPlan.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
@@ -75,6 +84,66 @@
                BuildableName = "DataTests"
                BlueprintName = "DataTests"
                ReferencedContainer = "container:Data">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "46E8A3FA2BDAC11700BFA57E"
+               BuildableName = "technicalChallengeTests.xctest"
+               BlueprintName = "technicalChallengeTests"
+               ReferencedContainer = "container:technicalChallenge.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DomainTests"
+               BuildableName = "DomainTests"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:Domain">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DataTests"
+               BuildableName = "DataTests"
+               BlueprintName = "DataTests"
+               ReferencedContainer = "container:Data">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "46E8A3FA2BDAC11700BFA57E"
+               BuildableName = "technicalChallengeTests.xctest"
+               BlueprintName = "technicalChallengeTests"
+               ReferencedContainer = "container:technicalChallenge.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DataTests"
+               BuildableName = "DataTests"
+               BlueprintName = "DataTests"
+               ReferencedContainer = "container:Data">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DomainTests"
+               BuildableName = "DomainTests"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:Domain">
             </BuildableReference>
          </TestableReference>
       </Testables>

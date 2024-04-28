@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "2326B5C6-E1FE-47E1-BFF2-D86D0280B75F",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Data",
+        "identifier" : "DataTests",
+        "name" : "DataTests"
+      }
+    }
+  ],
+  "version" : 1
+}
