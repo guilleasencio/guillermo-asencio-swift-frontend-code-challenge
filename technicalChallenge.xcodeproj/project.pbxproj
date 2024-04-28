@@ -33,6 +33,7 @@
 		46C38B042BDEB5E30038A021 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B032BDEB5E30038A021 /* XCUIElement.swift */; };
 		46C38B082BDEB82D0038A021 /* UITestToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B072BDEB82D0038A021 /* UITestToolkit.swift */; };
 		46C38B0A2BDEC1A50038A021 /* UIProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B092BDEC1A50038A021 /* UIProfileTests.swift */; };
+		46C38B0D2BDEDAB70038A021 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B0C2BDEDAB70038A021 /* UIViewController.swift */; };
 		46E8A3E92BDAC11400BFA57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */; };
 		46E8A3F22BDAC11700BFA57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F12BDAC11700BFA57E /* Assets.xcassets */; };
 		46E8A3F52BDAC11700BFA57E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F42BDAC11700BFA57E /* Base */; };
@@ -87,6 +88,7 @@
 		46C38B032BDEB5E30038A021 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		46C38B072BDEB82D0038A021 /* UITestToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestToolkit.swift; sourceTree = "<group>"; };
 		46C38B092BDEC1A50038A021 /* UIProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProfileTests.swift; sourceTree = "<group>"; };
+		46C38B0C2BDEDAB70038A021 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		46E8A3E52BDAC11400BFA57E /* technicalChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = technicalChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46E8A3F12BDAC11700BFA57E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				463FA9A02BDBCE2A000C337E /* UIView.swift */,
 				465742F62BDD97F100D38C7F /* UIImageView.swift */,
 				465742FA2BDD9E8700D38C7F /* UITableViewCell.swift */,
+				46C38B0C2BDEDAB70038A021 /* UIViewController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				465742EF2BDD7FF600D38C7F /* ProfileView.swift in Sources */,
 				463FA9A12BDBCE2A000C337E /* UIView.swift in Sources */,
 				46E8A4292BDAD86E00BFA57E /* HomeViewControllerFactory.swift in Sources */,
+				46C38B0D2BDEDAB70038A021 /* UIViewController.swift in Sources */,
 				465742FB2BDD9E8700D38C7F /* UITableViewCell.swift in Sources */,
 				465742F72BDD97F100D38C7F /* UIImageView.swift in Sources */,
 				465742E82BDD6D1500D38C7F /* ProfilePresenter.swift in Sources */,

@@ -38,8 +38,17 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         setupNavigationBar()
         setupComponents()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        unregisterForKeyboardNotifications()
     }
 
     // MARK: - Private
@@ -50,6 +59,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
 
     private func setupComponents() {
+        registerForKeyboardNotifications()
         sceneView.delegate = self
     }
 
@@ -81,5 +91,27 @@ extension HomeViewController: HomeViewDelegate {
             return
         }
         doGetUserDetails(term: term)
+    }
+}
+
+// MARK: - KeyboardHandler
+
+extension HomeViewController {
+    
+    override func keyboardWillAppear(height: CGFloat, duration: TimeInterval, options: UIView.AnimationOptions) {
+        if let screenHeight = view.window?.windowScene?.screen.bounds.size.height,
+           let textFieldPoint = sceneView.searchTextField.globalPoint {
+            var offSet = screenHeight - (textFieldPoint.y + sceneView.searchTextField.frame.size.height)
+            offSet -= height
+            if offSet < 0 {
+                self.view.frame.origin.y = offSet - 18
+            }
+        }
+    }
+    
+    override func keyboardWillDisappear(duration: TimeInterval, options: UIView.AnimationOptions) {
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }

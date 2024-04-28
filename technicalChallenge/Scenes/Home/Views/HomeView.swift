@@ -22,7 +22,6 @@ class HomeView: UIView {
 
     private struct ViewTraits {
         // Margins
-        static let contentTopMargin: CGFloat = 50.0
         static let contentMargin: CGFloat = 40.0
         static let contentSpacing: CGFloat = 18.0
         // Sizes
@@ -37,7 +36,7 @@ class HomeView: UIView {
 
     private let contentView = UIStackView()
     private let imageView = UIImageView()
-    private let searchTextField = UITextField(frame: .zero)
+    let searchTextField = UITextField(frame: .zero)
     private let searchButton = UIButton()
     private let loaderView = LoaderView()
 
@@ -121,8 +120,7 @@ class HomeView: UIView {
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             contentView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            contentView.topAnchor.constraint(equalTo: topAnchor,
-                                             constant: ViewTraits.contentTopMargin),
+            contentView.centerYAnchor.constraint(equalTo: centerYAnchor),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor,
                                                  constant: ViewTraits.contentMargin),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor,
