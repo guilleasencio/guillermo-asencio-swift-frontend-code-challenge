@@ -26,6 +26,7 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
     }
 
     var user: User?
+    private(set) var tasks = Set<Task<Void, Never>>()
 
     // MARK: - Public
 
@@ -45,6 +46,6 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
             }
             let response = Profile.Data.Response(state: state)
             presenter?.presentData(response: response)
-        }
+        }.store(in: &tasks)
     }
 }

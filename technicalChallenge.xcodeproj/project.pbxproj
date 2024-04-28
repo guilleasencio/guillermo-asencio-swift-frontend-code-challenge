@@ -24,6 +24,11 @@
 		465742F92BDD9BF700D38C7F /* RepositoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742F82BDD9BF700D38C7F /* RepositoryViewCell.swift */; };
 		465742FB2BDD9E8700D38C7F /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465742FA2BDD9E8700D38C7F /* UITableViewCell.swift */; };
 		46C38AF12BDE4B640038A021 /* BackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38AF02BDE4B640038A021 /* BackBarButtonItem.swift */; };
+		46C38AF62BDE6BE80038A021 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38AF52BDE6BE80038A021 /* HomeInteractorTests.swift */; };
+		46C38AF92BDE93C20038A021 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38AF82BDE93C20038A021 /* Task.swift */; };
+		46C38AFB2BDE96350038A021 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38AFA2BDE96350038A021 /* HomePresenterTests.swift */; };
+		46C38AFE2BDE98240038A021 /* ProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38AFD2BDE98240038A021 /* ProfilePresenterTests.swift */; };
+		46C38B002BDE996B0038A021 /* ProfileInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38AFF2BDE996B0038A021 /* ProfileInteractorTests.swift */; };
 		46E8A3E92BDAC11400BFA57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */; };
 		46E8A3F22BDAC11700BFA57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F12BDAC11700BFA57E /* Assets.xcassets */; };
 		46E8A3F52BDAC11700BFA57E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F42BDAC11700BFA57E /* Base */; };
@@ -71,6 +76,11 @@
 		465742F82BDD9BF700D38C7F /* RepositoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewCell.swift; sourceTree = "<group>"; };
 		465742FA2BDD9E8700D38C7F /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
 		46C38AF02BDE4B640038A021 /* BackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBarButtonItem.swift; sourceTree = "<group>"; };
+		46C38AF52BDE6BE80038A021 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		46C38AF82BDE93C20038A021 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		46C38AFA2BDE96350038A021 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		46C38AFD2BDE98240038A021 /* ProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterTests.swift; sourceTree = "<group>"; };
+		46C38AFF2BDE996B0038A021 /* ProfileInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractorTests.swift; sourceTree = "<group>"; };
 		46E8A3E52BDAC11400BFA57E /* technicalChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = technicalChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46E8A3F12BDAC11700BFA57E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +138,7 @@
 		463FA99E2BDBCDFC000C337E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				46C38AF72BDE93AE0038A021 /* Foundation */,
 				463FA99F2BDBCE1A000C337E /* UIKit */,
 			);
 			path = Extensions;
@@ -166,6 +177,41 @@
 				463FA9A22BDBCEBF000C337E /* HomeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		46C38AF32BDE6BAA0038A021 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				46C38AF42BDE6BB90038A021 /* Home */,
+				46C38AFC2BDE98010038A021 /* Profile */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		46C38AF42BDE6BB90038A021 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				46C38AF52BDE6BE80038A021 /* HomeInteractorTests.swift */,
+				46C38AFA2BDE96350038A021 /* HomePresenterTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		46C38AF72BDE93AE0038A021 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				46C38AF82BDE93C20038A021 /* Task.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		46C38AFC2BDE98010038A021 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				46C38AFD2BDE98240038A021 /* ProfilePresenterTests.swift */,
+				46C38AFF2BDE996B0038A021 /* ProfileInteractorTests.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		46D489592BDD6BA60077A443 /* Profile */ = {
@@ -218,6 +264,7 @@
 		46E8A3FE2BDAC11700BFA57E /* technicalChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				46C38AF32BDE6BAA0038A021 /* Scenes */,
 				46E8A3FF2BDAC11700BFA57E /* technicalChallengeTests.swift */,
 			);
 			path = technicalChallengeTests;
@@ -435,6 +482,7 @@
 				46E8A4242BDAD64500BFA57E /* HomeRouter.swift in Sources */,
 				46E8A4252BDAD64500BFA57E /* HomeModels.swift in Sources */,
 				465742F12BDD80CC00D38C7F /* ProfileViewControllerFactory.swift in Sources */,
+				46C38AF92BDE93C20038A021 /* Task.swift in Sources */,
 				463FA9A32BDBCEBF000C337E /* HomeView.swift in Sources */,
 				46C38AF12BDE4B640038A021 /* BackBarButtonItem.swift in Sources */,
 				46E8A4262BDAD64500BFA57E /* HomeViewController.swift in Sources */,
@@ -461,6 +509,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				46E8A4002BDAC11700BFA57E /* technicalChallengeTests.swift in Sources */,
+				46C38AF62BDE6BE80038A021 /* HomeInteractorTests.swift in Sources */,
+				46C38AFE2BDE98240038A021 /* ProfilePresenterTests.swift in Sources */,
+				46C38AFB2BDE96350038A021 /* HomePresenterTests.swift in Sources */,
+				46C38B002BDE996B0038A021 /* ProfileInteractorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,7 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     private let getUserDetailsUseCase: GetUserDetailsUseCase
 
     private(set) var user: User?
+    private(set) var tasks = Set<Task<Void, Never>>()
 
     init(getUserDetailsUseCase: GetUserDetailsUseCase) {
         self.getUserDetailsUseCase = getUserDetailsUseCase
@@ -40,6 +41,6 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
             }
             let response = Home.UserDetails.Response(errorMessage: errorMessage)
             presenter?.presentUserDetails(response: response)
-        }
+        }.store(in: &tasks)
     }
 }
