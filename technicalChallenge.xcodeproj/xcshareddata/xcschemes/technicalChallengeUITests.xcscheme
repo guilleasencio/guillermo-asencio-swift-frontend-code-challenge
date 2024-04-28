@@ -14,11 +14,21 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../technicalChallengeUITests.xctestplan"
+            reference = "container:UITestPlan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "46E8A4042BDAC11700BFA57E"
+               BuildableName = "technicalChallengeUITests.xctest"
+               BlueprintName = "technicalChallengeUITests"
+               ReferencedContainer = "container:technicalChallenge.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
@@ -58,15 +68,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "46E8A3E42BDAC11400BFA57E"
-            BuildableName = "technicalChallenge.app"
-            BlueprintName = "technicalChallenge"
-            ReferencedContainer = "container:technicalChallenge.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

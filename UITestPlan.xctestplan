@@ -1,19 +1,15 @@
 {
   "configurations" : [
     {
-      "id" : "222A4679-A6A5-4F05-BB54-497C2A320D38",
-      "name" : "Test Scheme Action",
+      "id" : "9DA5A67C-A185-4356-860C-9773DE9ED5AA",
+      "name" : "Configuration 1",
       "options" : {
 
       }
     }
   ],
   "defaultOptions" : {
-    "targetForVariableExpansion" : {
-      "containerPath" : "container:technicalChallenge.xcodeproj",
-      "identifier" : "46E8A3E42BDAC11400BFA57E",
-      "name" : "technicalChallenge"
-    }
+    "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
