@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "222A4679-A6A5-4F05-BB54-497C2A320D38",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:technicalChallenge.xcodeproj",
+      "identifier" : "46E8A3E42BDAC11400BFA57E",
+      "name" : "technicalChallenge"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:technicalChallenge.xcodeproj",
+        "identifier" : "46E8A4042BDAC11700BFA57E",
+        "name" : "technicalChallengeUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -89,12 +89,14 @@ class HomeView: UIView {
         imageView.image = UIImage(named: "github")
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
+        imageView.accessibilityIdentifier = "imageView"
 
         searchTextField.placeholder = "Username"
         searchTextField.borderStyle = .roundedRect
         searchTextField.backgroundColor = .white
         searchTextField.returnKeyType = .search
         searchTextField.delegate = self
+        searchTextField.accessibilityIdentifier = "searchTextField"
 
         var config = UIButton.Configuration.filled()
         config.buttonSize = .large
@@ -104,6 +106,7 @@ class HomeView: UIView {
 
         searchButton.configuration = config
         searchButton.addTarget(self, action: #selector(didTapSearchButton), for: .touchUpInside)
+        searchButton.accessibilityIdentifier = "searchButton"
 
         loaderView.isHidden = true
 

@@ -5,6 +5,9 @@
       location = "container:"
       name = "TestPlans">
       <FileRef
+         location = "group:technicalChallengeUITests.xctestplan">
+      </FileRef>
+      <FileRef
          location = "group:technicalChallenge.xctestplan">
       </FileRef>
       <FileRef
@@ -25,5 +28,8 @@
    </FileRef>
    <FileRef
       location = "group:technicalChallenge.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../technicalChallengeUITests.xctestplan">
    </FileRef>
 </Workspace>

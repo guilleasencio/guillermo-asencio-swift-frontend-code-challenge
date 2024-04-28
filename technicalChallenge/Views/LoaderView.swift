@@ -57,6 +57,8 @@ class LoaderView: UIView {
     // MARK: - Private
 
     private func setupComponents() {
+        accessibilityIdentifier = "loaderView"
+
         activityIndicatorImageView.image = UIImage(named: "loader")
         activityIndicatorImageView.contentMode = .scaleAspectFit
         addSubviewForAutolayout(activityIndicatorImageView)
