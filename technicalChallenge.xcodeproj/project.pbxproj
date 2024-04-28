@@ -32,6 +32,7 @@
 		46C38B022BDEB4F40038A021 /* UIHomeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B012BDEB4F40038A021 /* UIHomeTest.swift */; };
 		46C38B042BDEB5E30038A021 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B032BDEB5E30038A021 /* XCUIElement.swift */; };
 		46C38B082BDEB82D0038A021 /* UITestToolkit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B072BDEB82D0038A021 /* UITestToolkit.swift */; };
+		46C38B0A2BDEC1A50038A021 /* UIProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C38B092BDEC1A50038A021 /* UIProfileTests.swift */; };
 		46E8A3E92BDAC11400BFA57E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */; };
 		46E8A3F22BDAC11700BFA57E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F12BDAC11700BFA57E /* Assets.xcassets */; };
 		46E8A3F52BDAC11700BFA57E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 46E8A3F42BDAC11700BFA57E /* Base */; };
@@ -85,6 +86,7 @@
 		46C38B012BDEB4F40038A021 /* UIHomeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHomeTest.swift; sourceTree = "<group>"; };
 		46C38B032BDEB5E30038A021 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		46C38B072BDEB82D0038A021 /* UITestToolkit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestToolkit.swift; sourceTree = "<group>"; };
+		46C38B092BDEC1A50038A021 /* UIProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProfileTests.swift; sourceTree = "<group>"; };
 		46E8A3E52BDAC11400BFA57E /* technicalChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = technicalChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E8A3E82BDAC11400BFA57E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46E8A3F12BDAC11700BFA57E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,6 +234,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		46C38B0B2BDEC1AD0038A021 /* UITests */ = {
+			isa = PBXGroup;
+			children = (
+				46E8A4092BDAC11700BFA57E /* UIBaseTest.swift */,
+				46C38B012BDEB4F40038A021 /* UIHomeTest.swift */,
+				46C38B092BDEC1A50038A021 /* UIProfileTests.swift */,
+			);
+			path = UITests;
+			sourceTree = "<group>";
+		};
 		46D489592BDD6BA60077A443 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,10 +302,9 @@
 		46E8A4082BDAC11700BFA57E /* technicalChallengeUITests */ = {
 			isa = PBXGroup;
 			children = (
+				46C38B0B2BDEC1AD0038A021 /* UITests */,
 				46C38B062BDEB8150038A021 /* Utils */,
 				46C38B052BDEB5EB0038A021 /* Extensions */,
-				46E8A4092BDAC11700BFA57E /* UIBaseTest.swift */,
-				46C38B012BDEB4F40038A021 /* UIHomeTest.swift */,
 			);
 			path = technicalChallengeUITests;
 			sourceTree = "<group>";
@@ -540,6 +551,7 @@
 			files = (
 				46C38B022BDEB4F40038A021 /* UIHomeTest.swift in Sources */,
 				46C38B042BDEB5E30038A021 /* XCUIElement.swift in Sources */,
+				46C38B0A2BDEC1A50038A021 /* UIProfileTests.swift in Sources */,
 				46C38B082BDEB82D0038A021 /* UITestToolkit.swift in Sources */,
 				46E8A40A2BDAC11700BFA57E /* UIBaseTest.swift in Sources */,
 			);

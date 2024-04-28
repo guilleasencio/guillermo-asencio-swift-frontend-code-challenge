@@ -84,6 +84,7 @@ class ProfileView: UIView {
         tableView.contentInset = .zero
         tableView.register(RepositoryViewCell.self,
                            forCellReuseIdentifier: RepositoryViewCell.reuseIdentifier)
+        tableView.accessibilityIdentifier = "repositoriesTableView"
 
         addSubviewForAutolayout(tableView)
         addSubviewForAutolayout(loaderView)

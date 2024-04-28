@@ -54,6 +54,7 @@ class ProfileHeaderView: UIView {
 
     private func setupComponents() {
         backgroundColor = .systemGray6
+        accessibilityIdentifier = "profileHeaderView"
 
         contentView.axis = .vertical
         contentView.alignment = .center

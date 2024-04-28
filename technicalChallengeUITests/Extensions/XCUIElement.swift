@@ -23,4 +23,13 @@ extension XCUIElement {
         }
         return waitForExistence(timeout: TimeInterval(seconds))
     }
+    
+    func clearAndTypeText(_ text: String) {
+        tap()
+        if let currentSearch = value as? String {
+            let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: currentSearch.count)
+            typeText(deleteString)
+        }
+        typeText(text)
+    }
 }
