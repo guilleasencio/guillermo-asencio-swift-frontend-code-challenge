@@ -6,30 +6,66 @@
 //
 
 import XCTest
+@testable import Domain
 
 final class GetUserRepositoriesUseCaseTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    // MARK: - Subject under test
+    var useCase: GetUserRepositoriesUseCaseImplementation!
+    var repositoriesRepositoryMock: RepositoriesRepositoryMock!
+    
+    // MARK: - Test lifecycle
+
+    override func setUp() {
+        super.setUp()
+        setupUseCase()
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    override func tearDown() {
+        super.tearDown()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    // MARK: - Test setup
+
+    func setupUseCase() {
+        repositoriesRepositoryMock = RepositoriesRepositoryMock()
+        useCase = GetUserRepositoriesUseCaseImplementation(repositoriesRepository: repositoriesRepositoryMock)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    // MARK: - Tests
+
+    func testThatAnArrayOfRepositoriesIsReturned_When_UseCaseIsCalled() async {
+        do {
+            _ = try await useCase(username: "name")
+            XCTAssertTrue(repositoriesRepositoryMock.getUserRepositoriesCalled)
+        } catch {
+            XCTFail("Shouldn't throw an error")
         }
     }
+    
+    func testThatAnErrorIsThrown_When_UseCaseIsCalled_And_GetUserRepositoriesThrowsAnError() async {
+        repositoriesRepositoryMock.getUserRepositoriesError = CustomError(errorCode: .generic, errorMessage: "test")
 
+        do {
+            _ = try await useCase(username: "name")
+            XCTFail("Should throw an error")
+        } catch {
+            XCTAssertTrue(error is CustomError)
+        }
+    }
+}
+
+class RepositoriesRepositoryMock: RepositoriesRepository {
+
+    var getUserRepositoriesCalled = false
+    var getUserRepositoriesResponse: [Repository] = [Repository(name: "repo1", language: "Swift")]
+    var getUserRepositoriesError: CustomError?
+
+    func getUserRepositories(for username: String) async throws -> [Repository] {
+        getUserRepositoriesCalled = true
+        if let getUserRepositoriesError {
+            throw getUserRepositoriesError
+        }
+        return getUserRepositoriesResponse
+    }
 }
