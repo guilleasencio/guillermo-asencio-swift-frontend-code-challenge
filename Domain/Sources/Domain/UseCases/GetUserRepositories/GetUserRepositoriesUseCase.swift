@@ -19,6 +19,6 @@ final class GetUserRepositoriesUseCaseImplementation: GetUserRepositoriesUseCase
     }
 
     func callAsFunction(username: String) async throws -> [Repository] {
-        return try await repositoriesRepository.getUserRepositories(for: username)
+        try await repositoriesRepository.getUserRepositories(for: username)
     }
 }

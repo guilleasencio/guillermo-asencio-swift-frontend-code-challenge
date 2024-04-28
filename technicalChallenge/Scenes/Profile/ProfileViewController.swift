@@ -19,10 +19,6 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
 
     // MARK: Object lifecycle
 
-    override func loadView() {
-        view = sceneView
-    }
-
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -33,9 +29,24 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
 
     // MARK: View lifecycle
 
+    override func loadView() {
+        view = sceneView
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         loadData()
+    }
+
+    // MARK: - Private
+
+    private func setupNavigationBar() {
+        navigationItem.title = "User's Repositories"
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        let backButtonView = BackBarButtonItem()
+        backButtonView.delegate = self
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButtonView)
     }
 
     // MARK: - Output
@@ -51,5 +62,13 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     func displayData(viewModel: Profile.Data.ViewModel) {
         sceneView.setState(state: .loaded(headerViewData: viewModel.headerViewData,
                                           cellData: viewModel.cellData))
+    }
+}
+
+// MARK: - BackBarButtonItemDelegate
+
+extension ProfileViewController: BackBarButtonItemDelegate {
+    func backBarButtonItemDidPress(_ button: BackBarButtonItem) {
+        router?.routeToBack()
     }
 }

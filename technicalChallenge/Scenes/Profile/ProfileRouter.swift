@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ProfileRoutingLogic {
+    func routeToBack()
 }
 
 protocol ProfileDataPassing {
@@ -17,4 +18,10 @@ protocol ProfileDataPassing {
 class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing {
     weak var viewController: ProfileViewController?
     var dataStore: ProfileDataStore?
+
+    // MARK: Routing
+
+    func routeToBack() {
+      viewController?.navigationController?.popViewController(animated: true)
+    }
 }
