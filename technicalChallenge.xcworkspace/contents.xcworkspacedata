@@ -10,4 +10,7 @@
    <FileRef
       location = "group:technicalChallenge.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:../technicalChallenge.xctestplan">
+   </FileRef>
 </Workspace>
