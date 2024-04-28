@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:WorkspaceTestPlan.xctestplan">
-   </FileRef>
-   <FileRef
-      location = "group:DataTestPlan.xctestplan">
-   </FileRef>
-   <FileRef
-      location = "group:DomainTestPlan.xctestplan">
-   </FileRef>
-   <FileRef
-      location = "group:technicalChallenge.xctestplan">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "TestPlans">
+      <FileRef
+         location = "group:technicalChallenge.xctestplan">
+      </FileRef>
+      <FileRef
+         location = "group:WorkspaceTestPlan.xctestplan">
+      </FileRef>
+      <FileRef
+         location = "group:DataTestPlan.xctestplan">
+      </FileRef>
+      <FileRef
+         location = "group:DomainTestPlan.xctestplan">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Data">
    </FileRef>
