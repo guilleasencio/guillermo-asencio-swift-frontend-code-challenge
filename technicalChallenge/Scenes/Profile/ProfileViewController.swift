@@ -60,8 +60,12 @@ class ProfileViewController: UIViewController, ProfileDisplayLogic {
     // MARK: - Input
 
     func displayData(viewModel: Profile.Data.ViewModel) {
-        sceneView.setState(state: .loaded(headerViewData: viewModel.headerViewData,
-                                          cellData: viewModel.cellData))
+        switch viewModel.viewState {
+        case .success(let headerViewData, let cellData):
+            sceneView.setState(state: .loaded(headerViewData: headerViewData, cellData: cellData))
+        case .error(let message):
+            router?.routeToAlert(message: message)
+        }
     }
 }
 

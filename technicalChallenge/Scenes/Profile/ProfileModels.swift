@@ -14,13 +14,25 @@ enum Profile {
         }
 
         struct Response {
-            let user: User
-            let repositories: [Repository]
+            let state: ProfileDataState
         }
 
         struct ViewModel {
-            let headerViewData: ProfileHeaderViewData
-            let cellData: [RepositoryViewCellData]
+            let viewState: ProfileDataViewState
         }
     }
+}
+
+// MARK: - Business models
+
+enum ProfileDataState {
+    case success(user: User, repositories: [Repository])
+    case error(message: String)
+}
+
+// MARK: - View models
+
+enum ProfileDataViewState {
+    case success(headerViewData: ProfileHeaderViewData, cellData: [RepositoryViewCellData])
+    case error(message: String)
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProfileRoutingLogic {
     func routeToBack()
+    func routeToAlert(message: String)
 }
 
 protocol ProfileDataPassing {
@@ -23,5 +24,16 @@ class ProfileRouter: NSObject, ProfileRoutingLogic, ProfileDataPassing {
 
     func routeToBack() {
       viewController?.navigationController?.popViewController(animated: true)
+    }
+
+    func routeToAlert(message: String) {
+        let alert = UIAlertController(
+            title: "Error",
+            message: message,
+            preferredStyle: UIAlertController.Style.alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }

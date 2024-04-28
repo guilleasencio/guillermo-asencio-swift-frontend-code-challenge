@@ -18,10 +18,17 @@ class ProfilePresenter: ProfilePresentationLogic {
     // MARK: - Public
 
     func presentData(response: Profile.Data.Response) {
-        let headerViewData = ProfileHeaderViewData(name: response.user.username,
-                                                   avatar: response.user.avatar)
-        let viewModel = Profile.Data.ViewModel(headerViewData: headerViewData,
-                                               cellData: getCellData(repositories: response.repositories))
+        let viewState: ProfileDataViewState
+        switch response.state {
+        case .success(let user, let repositories):
+            let headerViewData = ProfileHeaderViewData(name: user.username,
+                                                       avatar: user.avatar)
+            let cellData = getCellData(repositories: repositories)
+            viewState = .success(headerViewData: headerViewData, cellData: cellData)
+        case .error(let message):
+            viewState = .error(message: message)
+        }
+        let viewModel = Profile.Data.ViewModel(viewState: viewState)
         viewController?.displayData(viewModel: viewModel)
     }
 

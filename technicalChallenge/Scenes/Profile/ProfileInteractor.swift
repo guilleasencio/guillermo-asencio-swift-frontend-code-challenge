@@ -34,16 +34,16 @@ class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
             return
         }
         Task { @MainActor in
-            var errorMessage: String?
-            var repositories: [Repository] = []
+            let state: ProfileDataState
             do {
-                repositories = try await getUserRepositoriesUseCase(username: user.username)
+                let repositories = try await getUserRepositoriesUseCase(username: user.username)
+                state = .success(user: user, repositories: repositories)
             } catch let error as CustomError {
-                errorMessage = error.errorMessage
+                state = .error(message: error.errorMessage)
             } catch {
-                errorMessage = error.localizedDescription
+                state = .error(message: error.localizedDescription)
             }
-            let response = Profile.Data.Response(user: user, repositories: repositories)
+            let response = Profile.Data.Response(state: state)
             presenter?.presentData(response: response)
         }
     }
