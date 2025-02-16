@@ -14,7 +14,7 @@
 // PDF
 //   $ asciidoctor-pdf README.adoc
 //
-= Agile Contents Swift iOS code challenge README
+= Swift iOS code challenge README
 
 :doctype: book
 :lang: en
